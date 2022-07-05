@@ -1,21 +1,34 @@
 package it.algoritmi.AlgoritmiRicerca;
 
+import java.util.Random;
+
 import it.algoritmi.AlgoritmiOrdinamento.InsertionSort;
 
+@SuppressWarnings("rawtypes")
 public class BinarySearch {
 
     public static void main (String[] args) {
-        Comparable num[] = {1, 5, 6, 7, 9, 10, 44, 78, 2, 54, 10, 21, 45, 63, 97, 87, 54, 23, 12, 15, 64, 52, 97, 35, 45, 78};
+
+        final int MAX_NUMBER = 5000;
+
+        Comparable[] num = new Comparable[MAX_NUMBER];
+
+        Random rand = new Random();
+        for (int count=0; count<MAX_NUMBER; count++)
+            num[count] = rand.nextInt(5000);
+        
+
         InsertionSort.insertionSort(num);
 
-        int[] copia = new int[num.length];
+        /* Creazione di un array di int dove copiare gli elementi comparable per eseguire una ricerca binaria */
+        int[] copia = new int[MAX_NUMBER];
         
-        for (int count = 0; count < num.length; count++) 
+        for (int count=0; count<MAX_NUMBER; count++) 
             copia[count] = (Integer) num[count];
         
             
         int posizione = binarySearch(copia, 44);
-        System.out.println("Posizione: " + posizione + "\nElemento: " + copia[posizione]);
+        System.out.println("Posizione: " + posizione);
     }
     
     public static int binarySearch (int[] array, int key) {
@@ -34,4 +47,5 @@ public class BinarySearch {
 
         return -1;
     }
+
 }

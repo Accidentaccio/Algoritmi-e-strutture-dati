@@ -3,6 +3,7 @@ package it.algoritmi.AlgoritmiOrdinamento;
 /* Confronti in qualsiasi caso = N^2/2
    Numero di scambi = N */
 
+@SuppressWarnings("rawtypes")
 public class SelectionSort {
     
     public static void selectionSort (Comparable a[]) {
@@ -14,7 +15,7 @@ public class SelectionSort {
                 if (less(a[j], a[min]))
                     min = j;
             
-                exch(a, i, min); 
+            exch(a, i, min); 
             
         }
     }

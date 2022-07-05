@@ -4,7 +4,8 @@ package it.algoritmi.AlgoritmiOrdinamento;
 /* Complessità (worst case) = N^2
    Complessità (average) = N^2
    Complessità (best case) = N */
-
+   
+@SuppressWarnings("rawtypes")
 public class InsertionSort {
 
     public static void insertionSort(Comparable a[]) {
