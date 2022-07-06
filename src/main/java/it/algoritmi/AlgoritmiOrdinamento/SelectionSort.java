@@ -46,7 +46,8 @@ public class SelectionSort {
                 if (less(a[j], a[min]))
                     min = j;
             
-            exch(a, i, min); 
+            if (i != min)
+                exch(a, i, min); 
             
         }
     }
