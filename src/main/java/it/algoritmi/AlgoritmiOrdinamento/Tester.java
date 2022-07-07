@@ -53,7 +53,7 @@ public class Tester {
 
         MergeSort.sortMigliorato(num4);
         System.out.println("MergeSort's improved time: " + s.getTime(TimeUnit.MILLISECONDS));
-        /* for (Comparable c: num4)
+/*         for (Comparable c: num4)
             System.out.println(c); */
 
         s.reset(); 

@@ -1,5 +1,6 @@
 package it.algoritmi.AlgoritmiOrdinamento;
 
+@SuppressWarnings("rawtypes")
 public class ShellSort {
 
     public static void shellSort(Comparable[] a) {
