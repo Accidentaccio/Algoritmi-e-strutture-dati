@@ -16,10 +16,11 @@ public class Tester {
         Comparable[] num2 = new Comparable[MAX_NUMBER];
         Comparable[] num3 = new Comparable[MAX_NUMBER]; 
         Comparable[] num4 = new Comparable[MAX_NUMBER]; 
-        Comparable[] num5 = new Comparable[MAX_NUMBER]; 
+        Comparable[] num5 = new Comparable[MAX_NUMBER];
+        Comparable[] num6 = new Comparable[MAX_NUMBER]; 
         Comparable arrayChar[] = {'I', ' ', 't', 'o', 'p', 'i', ' ', 'n', 'o', 'n', ' ', 'a', 'v', 'e', 'v', 'a', 'n', 'o', ' ', 'n', 'i', 'p', 'o', 't', 'i'};
 
-        Random rand = new Random();
+        Random rand = new Random(System.currentTimeMillis());
         for (int count=0; count<MAX_NUMBER; count++)
             num1[count] = rand.nextInt(5000);
         
@@ -27,6 +28,8 @@ public class Tester {
         num3 = num1.clone(); 
         num4 = num1.clone();
         num5 = num1.clone();
+        num6 = num1.clone();
+
 
         StopWatch s = new StopWatch();
         s.start();
@@ -53,18 +56,18 @@ public class Tester {
 
         MergeSort.sortMigliorato(num4);
         System.out.println("MergeSort's improved time: " + s.getTime(TimeUnit.MILLISECONDS));
-/*         for (Comparable c: num4)
-            System.out.println(c); */
 
         s.reset(); 
         s.start();
 
-
         ShellSort.shellSort(num5);
         System.out.println("ShellSort's time: " + s.getTime(TimeUnit.MILLISECONDS));
 
+        s.reset(); 
+        s.start();
 
-
+        QuickSort.quickSort(num6);
+        System.out.println("QuickSort's time: " + s.getTime(TimeUnit.MILLISECONDS));
         
     }
 
