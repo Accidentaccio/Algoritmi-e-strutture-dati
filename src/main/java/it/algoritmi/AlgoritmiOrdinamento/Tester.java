@@ -8,7 +8,7 @@ import org.apache.commons.lang3.time.StopWatch;
 @SuppressWarnings("rawtypes")
 public class Tester {    
     
-    public static void main(String[] args) throws InterruptedException, IOException {
+    public static void main(String[] args) {
 
         final int MAX_NUMBER = 30000;
 
