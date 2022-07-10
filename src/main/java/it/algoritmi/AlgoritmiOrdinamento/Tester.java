@@ -1,16 +1,21 @@
 package it.algoritmi.AlgoritmiOrdinamento;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.time.StopWatch;
+import org.eclipse.jdt.internal.compiler.parser.Scanner;
 
 @SuppressWarnings("rawtypes")
 public class Tester {    
     
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
 
-        final int MAX_NUMBER = 5000;
+        final int MAX_NUMBER = 30000;
 
         Comparable[] num1 = new Comparable[MAX_NUMBER];
         Comparable[] num2 = new Comparable[MAX_NUMBER];
@@ -18,6 +23,7 @@ public class Tester {
         Comparable[] num4 = new Comparable[MAX_NUMBER]; 
         Comparable[] num5 = new Comparable[MAX_NUMBER];
         Comparable[] num6 = new Comparable[MAX_NUMBER]; 
+        Comparable[] num7 = new Comparable[MAX_NUMBER]; 
         Comparable arrayChar[] = {'I', ' ', 't', 'o', 'p', 'i', ' ', 'n', 'o', 'n', ' ', 'a', 'v', 'e', 'v', 'a', 'n', 'o', ' ', 'n', 'i', 'p', 'o', 't', 'i'};
 
         Random rand = new Random(System.currentTimeMillis());
@@ -29,6 +35,9 @@ public class Tester {
         num4 = num1.clone();
         num5 = num1.clone();
         num6 = num1.clone();
+        //num7 = num1.clone();
+        for (int i=0; i<MAX_NUMBER; i++)
+            num7[i] = i;
 
 
         StopWatch s = new StopWatch();
@@ -64,10 +73,15 @@ public class Tester {
         System.out.println("ShellSort's time: " + s.getTime(TimeUnit.MILLISECONDS));
 
         s.reset(); 
+        s.start();        
+        
+        System.out.println("QuickSort's time: " + s.getTime(TimeUnit.MILLISECONDS));
+        
+        s.reset(); 
         s.start();
 
-        QuickSort.quickSort(num6);
-        System.out.println("QuickSort's time: " + s.getTime(TimeUnit.MILLISECONDS));
+        QuickSort.ThreeWayQuickSort(num7);
+        System.out.println("3WayQuickSort's time: " + s.getTime(TimeUnit.MILLISECONDS));
         
     }
 

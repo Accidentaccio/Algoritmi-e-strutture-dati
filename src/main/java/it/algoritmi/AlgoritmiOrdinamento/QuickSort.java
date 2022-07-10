@@ -2,6 +2,7 @@ package it.algoritmi.AlgoritmiOrdinamento;
 
 import it.algoritmi.Shuffle.ShuffleSort;
 
+
 public class QuickSort {
     
     public static void quickSort (Comparable[] a) {
@@ -34,6 +35,28 @@ public class QuickSort {
 
         exch (a, low, j);
         return j;
+    }
+
+    public static void ThreeWayQuickSort (Comparable[] a) {
+        //ShuffleSort.shuffle(a);
+        waySort(a, 0, a.length-1);
+    }
+
+    private static void waySort(Comparable[] a, int low, int high) {
+
+        if (high<=low) return;
+        int lt = low, i=low, gt = high;
+        Comparable v = a[low];
+        
+        while (i<=gt) {
+            int cmp = a[i].compareTo(v);
+            if (cmp < 0) exch(a, lt++, i++);
+            else if (cmp > 0) exch(a, i, gt--);
+            else i++;
+        }
+
+        sort(a, low, lt-1);
+        sort(a, gt+1, high);
     }
 
     private static boolean less (Comparable a, Comparable b) {
