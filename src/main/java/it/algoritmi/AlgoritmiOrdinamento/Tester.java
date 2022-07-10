@@ -1,14 +1,9 @@
 package it.algoritmi.AlgoritmiOrdinamento;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.time.StopWatch;
-import org.eclipse.jdt.internal.compiler.parser.Scanner;
 
 @SuppressWarnings("rawtypes")
 public class Tester {    
@@ -74,7 +69,8 @@ public class Tester {
 
         s.reset(); 
         s.start();        
-        
+
+        QuickSort.quickSort(num6);
         System.out.println("QuickSort's time: " + s.getTime(TimeUnit.MILLISECONDS));
         
         s.reset(); 

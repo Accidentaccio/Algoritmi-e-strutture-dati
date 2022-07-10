@@ -2,7 +2,7 @@ package it.algoritmi.AlgoritmiOrdinamento;
 
 import it.algoritmi.Shuffle.ShuffleSort;
 
-
+@SuppressWarnings("rawtypes")
 public class QuickSort {
     
     public static void quickSort (Comparable[] a) {
@@ -38,11 +38,11 @@ public class QuickSort {
     }
 
     public static void ThreeWayQuickSort (Comparable[] a) {
-        //ShuffleSort.shuffle(a);
-        waySort(a, 0, a.length-1);
+        ShuffleSort.shuffle(a);
+        threeWayQuickSort(a, 0, a.length-1);
     }
 
-    private static void waySort(Comparable[] a, int low, int high) {
+    private static void threeWayQuickSort(Comparable[] a, int low, int high) {
 
         if (high<=low) return;
         int lt = low, i=low, gt = high;
@@ -58,6 +58,8 @@ public class QuickSort {
         sort(a, low, lt-1);
         sort(a, gt+1, high);
     }
+
+    
 
     private static boolean less (Comparable a, Comparable b) {
         
