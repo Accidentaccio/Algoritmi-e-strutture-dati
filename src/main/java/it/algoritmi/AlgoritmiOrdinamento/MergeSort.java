@@ -25,7 +25,7 @@ package it.algoritmi.AlgoritmiOrdinamento;
         l'ordine corretto dei due sub-array.
 
         Il numero di confronti è pari a N*logN (in base 2). (Spiegazione sulle slides)
-        Il numero di scambi è <= di 6 volte i confronti, ovvero <= 6N*logN. Il motivo di questa cosa è
+        Il numero di scambi è 6 volte i confronti, ovvero 6N*logN. Il motivo di questa cosa è
         che nell'algoritmo vengono eseguiti ricorsivamente 2 sort e 1 merge, e tutti e tre accedono 2
         volte all'array. (2x3 = 6 volte).
 
