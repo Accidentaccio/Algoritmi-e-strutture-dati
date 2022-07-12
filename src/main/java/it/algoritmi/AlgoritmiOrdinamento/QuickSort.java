@@ -1,12 +1,12 @@
 package it.algoritmi.AlgoritmiOrdinamento;
 
-import it.algoritmi.Shuffle.ShuffleSort;
+import it.algoritmi.Shuffle.KnuthShuffle;
 
 @SuppressWarnings("rawtypes")
 public class QuickSort {
     
     public static void quickSort (Comparable[] a) {
-        ShuffleSort.shuffle(a);
+        KnuthShuffle.shuffle(a);
         sort(a, 0, a.length-1);
         
     }
@@ -38,7 +38,7 @@ public class QuickSort {
     }
 
     public static void ThreeWayQuickSort (Comparable[] a) {
-        ShuffleSort.shuffle(a);
+        KnuthShuffle.shuffle(a);
         threeWayQuickSort(a, 0, a.length-1);
     }
 

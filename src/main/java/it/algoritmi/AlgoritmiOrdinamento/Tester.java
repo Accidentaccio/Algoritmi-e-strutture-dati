@@ -10,7 +10,7 @@ public class Tester {
     
     public static void main(String[] args) {
 
-        final int MAX_NUMBER = 30000;
+        final int MAX_NUMBER = 20;
 
         Comparable[] num1 = new Comparable[MAX_NUMBER];
         Comparable[] num2 = new Comparable[MAX_NUMBER];
@@ -19,6 +19,7 @@ public class Tester {
         Comparable[] num5 = new Comparable[MAX_NUMBER];
         Comparable[] num6 = new Comparable[MAX_NUMBER]; 
         Comparable[] num7 = new Comparable[MAX_NUMBER]; 
+        Comparable[] num8 = new Comparable[MAX_NUMBER]; 
         Comparable arrayChar[] = {'I', ' ', 't', 'o', 'p', 'i', ' ', 'n', 'o', 'n', ' ', 'a', 'v', 'e', 'v', 'a', 'n', 'o', ' ', 'n', 'i', 'p', 'o', 't', 'i'};
 
         Random rand = new Random(System.currentTimeMillis());
@@ -30,9 +31,9 @@ public class Tester {
         num4 = num1.clone();
         num5 = num1.clone();
         num6 = num1.clone();
-        //num7 = num1.clone();
-        for (int i=0; i<MAX_NUMBER; i++)
-            num7[i] = i;
+        num7 = num1.clone();
+        num8 = num1.clone();
+
 
 
         StopWatch s = new StopWatch();
@@ -79,6 +80,12 @@ public class Tester {
         QuickSort.ThreeWayQuickSort(num7);
         System.out.println("3WayQuickSort's time: " + s.getTime(TimeUnit.MILLISECONDS));
         
+        s.reset(); 
+        s.start();
+
+        HeapSort.HeapSort(num8);
+        System.out.println("HeapSort's time: " + s.getTime(TimeUnit.MILLISECONDS));
+
     }
 
 }

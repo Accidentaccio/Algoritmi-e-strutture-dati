@@ -2,7 +2,8 @@ package it.algoritmi.Shuffle;
 
 import java.util.Random;
 
-public class ShuffleSort {
+@SuppressWarnings("rawtypes")
+public class KnuthShuffle {
     
     public static void shuffle (Comparable[] a) {
         Random random = new Random(System.currentTimeMillis());
