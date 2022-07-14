@@ -10,7 +10,7 @@ public class Tester {
     
     public static void main(String[] args) {
 
-        final int MAX_NUMBER = 20;
+        final int MAX_NUMBER = 30000;
 
         Comparable[] num1 = new Comparable[MAX_NUMBER];
         Comparable[] num2 = new Comparable[MAX_NUMBER];
@@ -20,6 +20,7 @@ public class Tester {
         Comparable[] num6 = new Comparable[MAX_NUMBER]; 
         Comparable[] num7 = new Comparable[MAX_NUMBER]; 
         Comparable[] num8 = new Comparable[MAX_NUMBER]; 
+        Comparable[] num9 = new Comparable[MAX_NUMBER]; 
         Comparable arrayChar[] = {'I', ' ', 't', 'o', 'p', 'i', ' ', 'n', 'o', 'n', ' ', 'a', 'v', 'e', 'v', 'a', 'n', 'o', ' ', 'n', 'i', 'p', 'o', 't', 'i'};
 
         Random rand = new Random(System.currentTimeMillis());
@@ -33,7 +34,7 @@ public class Tester {
         num6 = num1.clone();
         num7 = num1.clone();
         num8 = num1.clone();
-
+        num9 = num1.clone();
 
 
         StopWatch s = new StopWatch();
@@ -86,6 +87,11 @@ public class Tester {
         HeapSort.HeapSort(num8);
         System.out.println("HeapSort's time: " + s.getTime(TimeUnit.MILLISECONDS));
 
+        s.reset(); 
+        s.start();
+
+        BinaryInsertion.BinaryInsertion((num9));
+        System.out.println("BinaryInsertion's time: " + s.getTime(TimeUnit.MILLISECONDS));
     }
 
 }

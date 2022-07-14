@@ -1,4 +1,4 @@
-package it.algoritmi.PriorityQueues;
+package it.algoritmi;
 
 @SuppressWarnings("rawtypes")
 public class MaxPQ<Key extends Comparable<Key>> {
