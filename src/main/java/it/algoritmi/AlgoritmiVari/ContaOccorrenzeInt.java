@@ -11,8 +11,12 @@ public class ContaOccorrenzeInt {
 
     public static void main(String args[]) {
         Comparable[] array  = {1, 1, 1, 2, 2, 2, 3, 3, 3}; 
+        int[] arrayInt  = {1, 1, 1, 2, 2, 2, 3, 3, 3}; 
 
-        System.out.println("Conta occorrenze di 3: " + binarySearchLastOccurence(array, 3)); 
+        System.out.println("\n\n");
+        System.out.println("Conta occorrenze di 2: " + contaOccorrenze(array)); 
+        System.out.println("Conta occorrenze di 2 (professore): " + FindElements.numberOfTwo(arrayInt));
+        System.out.println("\n\n");
     }
     
     public static int contaOccorrenze(Comparable[] a) {
@@ -50,5 +54,68 @@ public class ContaOccorrenzeInt {
 
         }
         return low; 
+    }
+
+
+
+    /**
+     * Implementazione del professore
+     */
+    public static class FindElements {
+
+        public static int numberOfTwo(int[] A) {
+            int n = A.length-1; 
+
+            // Gli indici h e k rappresentano rispettivamente l'indice dell'ultimo 1 e dell'ultimo 2
+            int h, k; 
+
+            // Se nell'ultima posizione dell'array c'è un 1, significa che 
+            // non ci sono 2 all'interno dell'array
+            if(A[n] == 1) {
+                return 0; 
+            }
+
+            // Se nella prima posizione dell'array c'è un 2 significa che
+            // non ci sono 1 all'interno dell'array, quindi setto l'indice h = 0
+            if(A[0] == 2) {
+                h = 0; 
+            }
+            else {
+                // Utilizzo la ricerca binaria per trovare l'indice h
+                h = binarySearchLastX(A, 1, 1, n); 
+            }
+
+            // Se nell'ultima posizione dell'array c'è un 2 significa che
+            // non ci sono 3 all'interno dell'array, quindi setto l'indice k = n
+            if(A[n] == 2) {
+                k = n; 
+            }
+            else {
+                // Utilizzo la ricerca binaria per trovare l'indice k
+                k = binarySearchLastX(A, 2, 0, n-1); 
+            }
+
+            return (k-h); 
+        }
+
+        private static int binarySearchLastX(int[] A, int x, int i, int j) {
+            if(i > j) {
+                return -1; 
+            }
+
+            int m = (i+j)/2; 
+
+            if(A[m] == x && A[m+1] > x) {
+                return m;
+            }
+
+            if(A[m] > x) {
+                return binarySearchLastX(A, x, i, m-1);
+            }
+            else {
+                return binarySearchLastX(A, x, m+1, j);
+            }
+        }
+
     }
 } 

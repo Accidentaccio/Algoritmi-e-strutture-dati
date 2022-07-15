@@ -1,6 +1,9 @@
 package it.algoritmi.AlgoritmiVari;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.time.StopWatch;
@@ -30,7 +33,11 @@ public class VerificaStessoNumeroOccorrenze {
                 
         System.out.println(s.getTime(TimeUnit.MILLISECONDS));
         System.out.println(esito);
-       
+
+        // Utilizza la seconda implementazione
+        Object[] array = {5, 5, 7, 3, 7, 7};
+        esito = VerificaOccorrenze.sameValues(array);
+        System.out.println("\nEsito: " + esito + "\n");
     }
 
     public static boolean verificaStessoNumeroOccorrenze(int[] a) {
@@ -91,6 +98,51 @@ public class VerificaStessoNumeroOccorrenze {
             else if(j > high) aux[k] = a[i++]; 
             else if(a[j] < a[i]) aux[k] = a[j++]; 
             else aux[k] = a[i++];
+        }
+    }
+
+
+
+
+
+    /**
+     * IMPLEMENTAZIONE DEL PROFESSORE
+     */
+
+    public static class VerificaOccorrenze {
+        
+        public static boolean sameValues(Object array[]) {
+    
+            // Si utilizza una HashMap per contare le occorrenze di ogni oggetto
+            HashMap<Object, Integer> counts = new HashMap<Object, Integer>();
+            // Se la chiave non è all'interno della mappa viene aggiunta
+            // altrimenti si prende l'occorrenza della chiave e si incrementa di 1
+            for(Object o : array) {
+                if(!counts.containsKey(o))
+                    counts.put(o, 1); 
+                else {
+                    int count = counts.get(o); 
+                    counts.put(o, count+1); 
+                }
+            }
+
+            return hasDuplicates(counts.values().toArray(new Integer[counts.values().size()])); 
+        }
+    
+        // Mediante questo metodo si costruisce un HashSet al cui interno vengono 
+        // inseriti i valori corrispondenti alle occorrenze dei vari oggetti
+        private static boolean hasDuplicates(Integer[] values) {
+            Set<Integer> checkDup = new HashSet<Integer>(); 
+            for (int i = 0; i < values.length; i++) {
+                // Appena si tenta di inserire un valore che è già presente all'interno del Set
+                // il metodo ritorna true, in quanto ciò significa che sono stati trovati due oggetti
+                // che occorrono lo stesso numero di volte all'interno dell'array
+                // Se si esce dal ciclo si ritorna false, poiché non sono state trovate due occorrenze uguali
+                if(checkDup.contains(values[i])) return true; 
+                checkDup.add(values[i]); 
+            }
+            
+            return false; 
         }
     }
 
