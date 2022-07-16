@@ -8,13 +8,6 @@ public class MyStackList<T extends Comparable> implements Iterable<T> {
 
     public static void main (String[] args) {
 
-        MyStackList<Integer> stack = new MyStackList<Integer>();
-        stack.push(18);
-        stack.push(21);
-
-        for (Integer num: stack)
-            System.out.println(num);
-
     }
 
 
@@ -38,6 +31,24 @@ public class MyStackList<T extends Comparable> implements Iterable<T> {
         T item = first.item;
         first = first.next;
         return item;
+    }
+
+    
+    /**
+     * 
+     * @return il numero effettivo di elementi nello stack
+     */
+    public int size() {
+
+        int count = 0;
+
+        Node sonda = first;
+
+        while(sonda != null) {
+            sonda =  sonda.next;
+            count++; 
+        }          
+        return count;
     }
 
 

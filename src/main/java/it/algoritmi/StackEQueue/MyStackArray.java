@@ -1,28 +1,11 @@
-package it.algoritmi.UnionFind;
+package it.algoritmi.StackEQueue;
 
 import java.util.Iterator;
 
 @SuppressWarnings("rawtypes")
 public class MyStackArray<T extends Comparable> implements Iterable<T> {
 
-    public static void main(String[] args) {
-        
-        MyStackArray<Integer> stack = new MyStackArray<>();
-        stack.push(18);
-        stack.push(21);
-        stack.push(18);
-        stack.push(21);
-        stack.push(18);
-        stack.push(21);
-        stack.push(18);
-        stack.push(21);
-
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-
-        System.out.println(stack.size());
-    }
-
+    //Variabili d'istanza
     int first;
     T[] array;
 
@@ -59,6 +42,9 @@ public class MyStackArray<T extends Comparable> implements Iterable<T> {
     }
 
 
+    /**
+     * Il metodo controlla l'effettivo riempimento dell'array. Nel caso in cui fosse pieno, l'array viene riallocato con il doppio della dimensione
+     */
     private void fixedPushCapacity() {
 
         if (size() == array.length) {
@@ -72,6 +58,9 @@ public class MyStackArray<T extends Comparable> implements Iterable<T> {
         }        
     }
 
+    /**
+     * Il metodo controlla l'effettivo riempimento dell'array. Nel caso in cui fosse minore di 1/4 del totale, l'array viene riallocato con la metà della dimensione
+     */
     private void fixedPopCapacity() {
 
         if (size() == array.length/4) {
@@ -86,6 +75,10 @@ public class MyStackArray<T extends Comparable> implements Iterable<T> {
     }
 
 
+    /**
+     * 
+     * @return il numero effettivo di elementi nello stack
+     */
     public int size() {
 
         int count = 0;
