@@ -3,7 +3,7 @@ package it.algoritmi.AlgoritmiOrdinamento;
 @SuppressWarnings("rawtypes")
 public class HeapSort {
     
-    public static void HeapSort(Comparable[] a) {
+    public static void heapSort(Comparable[] a) {
 
         int n = a.length;
         //Ciclo for per "disporre" a binary heap l'array iniziale

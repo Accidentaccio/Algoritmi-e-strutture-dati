@@ -4,7 +4,7 @@ package it.algoritmi.AlgoritmiOrdinamento;
 public class BinaryInsertion {
 
     
-    public static void BinaryInsertion(Comparable[] a) {
+    public static void binaryInsertion(Comparable[] a) {
         
         for (int i=1; i<a.length; i++) {
             int pos = binarySearchPosition(a, i);

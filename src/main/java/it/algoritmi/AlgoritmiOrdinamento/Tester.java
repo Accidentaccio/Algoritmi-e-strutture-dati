@@ -84,13 +84,13 @@ public class Tester {
         s.reset(); 
         s.start();
 
-        HeapSort.HeapSort(num8);
+        HeapSort.heapSort(num8);
         System.out.println("HeapSort's time: " + s.getTime(TimeUnit.MILLISECONDS));
 
         s.reset(); 
         s.start();
 
-        BinaryInsertion.BinaryInsertion((num9));
+        BinaryInsertion.binaryInsertion((num9));
         System.out.println("BinaryInsertion's time: " + s.getTime(TimeUnit.MILLISECONDS));
     }
 
