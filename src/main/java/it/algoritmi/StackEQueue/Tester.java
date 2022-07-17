@@ -15,7 +15,7 @@ public class Tester {
         stackArray.push(21);
 
         System.out.println("Rimozione 1: " + stackArray.pop());
-        System.out.println("Rimozione 2: " +stackArray.pop());
+        System.out.println("Rimozione 2: " + stackArray.pop());
 
         System.out.println("\nStampa degli elementi nello stack sfruttando l'iteratore");
         for (Integer num: stackArray)
@@ -80,15 +80,7 @@ public class Tester {
         
         for (int i=0; i<queueArray.size(); i++)
             System.out.println(queueArray.dequeue());
-        
-
-       /* System.out.println("\nStampa degli elementi rimanenti nella queue sfruttando l'iteratore");
-        for(Integer n : queueArray) {
-            System.out.println(n);
-        } */
-
-
-        
+          
     }
 
 }

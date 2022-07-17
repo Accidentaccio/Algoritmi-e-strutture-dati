@@ -41,12 +41,21 @@ public class HeapSort {
     }
 
     private static boolean less (Comparable[] a, int i, int j) {
+        /*
+         * Le variabili di conteggio vengono decrementate dal momento che il binary heap lavora con il sistema
+         * 1-based, ovvero l'elemento padre dell'albero è 1, appunto. Ma gli array, e in generale nell'informatica
+         * si lavora con il sistema 0-based, motivo per cui è necessario decrementare le variabili.
+         */
         return a[i-1].compareTo(a[j-1]) < 0;
     }
 
     private static void exch (Comparable[] a, int i, int j) {
-        i -= 1;
-        j -= 1;
+        /*
+         * Le variabili di conteggio vengono decrementate dal momento che il binary heap lavora con il sistema
+         * 1-based, ovvero l'elemento padre dell'albero è 1, appunto. Ma gli array, e in generale nell'informatica
+         * si lavora con il sistema 0-based, motivo per cui è necessario decrementare le variabili.
+         */
+        i--; j--;
         Comparable temp = a[i];
         a[i] = a[j];
         a[j] = temp;
