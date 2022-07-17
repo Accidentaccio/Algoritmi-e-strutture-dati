@@ -9,7 +9,7 @@ public class MyQueueList<T extends Comparable> implements Iterable<T> {
 
     public static void main(String[] args)
     {
-        /* MyQueueList q = new MyQueueList();
+        MyQueueList<Integer> q = new MyQueueList<Integer>();
         q.enqueue(10);
         q.enqueue(20);
         q.dequeue();
@@ -17,10 +17,10 @@ public class MyQueueList<T extends Comparable> implements Iterable<T> {
         q.enqueue(30);
         q.enqueue(40);
         q.enqueue(50);
-        q.dequeue();
-        System.out.println("Queue first : " + q.first.item);
-        System.out.println("Queue last : " + q.last.item);
-        System.out.println("\n\n"); */
+        System.out.println("Queue first: " + q.dequeue());
+        System.out.println("Queue first: " + q.first.item);
+        System.out.println("Queue last: " + q.last.item);
+        System.out.println("\n\n");
 
     }
 

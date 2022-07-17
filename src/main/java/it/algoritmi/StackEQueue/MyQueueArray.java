@@ -2,16 +2,11 @@ package it.algoritmi.StackEQueue;
 
 import java.util.Iterator;
 
-import org.jsoup.select.Evaluator.IsEmpty;
-
+@SuppressWarnings("rawtypes")
 public class MyQueueArray<T extends Comparable> implements Iterable<T> {
     
     int head, tail; 
     T[] array; 
-
-    public static void main(String args[]) {
-
-    }
 
     public MyQueueArray() {
         array = (T[]) new Comparable[1]; 
@@ -20,30 +15,18 @@ public class MyQueueArray<T extends Comparable> implements Iterable<T> {
 
     public void enqueue(T item) {
         
-
-        // Aggiungo l'elemento alla coda
-        array[tail++] = item; 
-
         // Controllo sul riempimento dell'array
         fixedEnqueueCapacity(); 
 
-        /**
-         * Nel caso in cui la coda era vuota, faccio in modo che head (il quale deve puntare alla 
-         * prima posizione piena all'interno dell'array) punti a tail, ovvero dove è appena stato inserito
-         * l'elemento. 
-         * A prescindere da se entro o meno in questo if, procedo con l'incrementare 
-         * l'indice tail
-         */
-        /* if(isEmpty())
-            head = tail; 
-        tail++;  */
+        // Aggiungo l'elemento alla coda
+        array[tail++] = item; 
     }
 
     public T dequeue() {
         T item = array[head]; 
 
         // Elimino l'elemento in testa alla coda e faccio puntare head al prossimo elemento
-        array[head] = null; 
+        array[head++] = null; 
 
         // Controllo il riempimento dell'array
         fixedDequeueCapacity(); 
@@ -52,9 +35,9 @@ public class MyQueueArray<T extends Comparable> implements Iterable<T> {
          * Se dopo aver rimosso l'elemento la coda è vuota, faccio puntare entrambi 
          * gli indici head e tail alla prima posizione dell'array
          */
+        
         if(isEmpty())
             tail = head; 
-        head++;
 
         return item; 
     }
@@ -64,14 +47,14 @@ public class MyQueueArray<T extends Comparable> implements Iterable<T> {
      * Se è pieno, l'array viene riallocato con il doppio della dimensione. 
      */
     private void fixedEnqueueCapacity() {
-        if(size() == array.length) {
+        if(lastPositionOccupied() == array.length-1) {
             T[] aux = (T[]) new Comparable[array.length*2]; 
 
             for (int i = 0; i < array.length; i++) {
                 aux[i] = array[i]; 
             }
 
-            array = aux; 
+            array = aux;
         }
     }
 
@@ -81,23 +64,45 @@ public class MyQueueArray<T extends Comparable> implements Iterable<T> {
      */
     private void fixedDequeueCapacity() {
 
-        if(size() == array.length/4) {
+        if(lastPositionOccupied() == array.length/4) {
             T[] aux = (T[]) new Comparable[array.length/2];
 
-            for (int i = 0; i < array.length; i++) {
-                aux[i] = array[i]; 
-            }
+            for (int i = 0, j = 0; i < array.length && array[i] != null; i++)
+                aux[j++] = array[i]; 
+            
 
-            array = aux; 
+            array = aux;
+            head = 0;
+            tail = array.length-1;
         }
     }
 
-    // Metodo per verificare se la coda è vuota
+    /**
+     * 
+     * @return l'ultima posizione non NULL occupata nell'array, diversa ovviamente da size
+     */
+    private int lastPositionOccupied() {
+        for (int i=array.length-1; i >= 0; i--)
+            if (array[i] != null)
+                return i;
+        return 0;
+    }
+
+    
+    /**
+     * Metodo per verificare se la coda è vuota
+     * @return true se la Queue è vuota
+     * @return false se la Queue non è vuota
+     */
     public boolean isEmpty(){
         return array[head] == null; 
     }
 
-    // Metodo che restituisce il numero effettivo di elementi presenti all'interno della coda
+    
+    /**
+     * Metodo che restituisce il numero effettivo di elementi presenti all'interno della coda
+     * @return il numero di elementi non NULL nella Queue
+     */
     public int size() {
         int count = 0; 
 

@@ -5,12 +5,7 @@ import java.util.Iterator;
 @SuppressWarnings("rawtypes")
 public class MyStackList<T extends Comparable> implements Iterable<T> {
 
-
-    public static void main (String[] args) {
-
-    }
-
-
+    //Variabile d'istanza
     Node first;
 
     public MyStackList() {
