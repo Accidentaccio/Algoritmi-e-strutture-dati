@@ -5,7 +5,7 @@ import java.util.Iterator;
 @SuppressWarnings("rawtypes")
 public class MyStackArray<T extends Comparable> implements Iterable<T> {
 
-    //Variabili d'istanza
+    // Variabili d'istanza
     int first;
     T[] array;
 
@@ -18,23 +18,23 @@ public class MyStackArray<T extends Comparable> implements Iterable<T> {
 
     public void push(T item) {
 
-        //Eseguo il controllo per l'eventuale ingrandimento dell'array
+        // Eseguo il controllo per l'eventuale ingrandimento dell'array
         fixedPushCapacity();
 
-        //Inserisco l'oggetto nella posizione first e incremento first
+        // Inserisco l'oggetto nella posizione first e incremento first
         array[first++] = item;
     }
 
     public T pop() {
 
         
-        //Salva l'oggetto in posizione first-1 (ovvero l'ultimo inserito, visto che first punta già alla "prossima posizione utile" in cui inserire)
+        // Salva l'oggetto in posizione first-1 (ovvero l'ultimo inserito, visto che first punta già alla "prossima posizione utile" in cui inserire)
         T item = array[--first];
         
-        //Eliminiamo il riferimento dell'oggetto nell'array
+        // Eliminiamo il riferimento dell'oggetto nell'array
         array[first] = null;
         
-        //Eseguo il controllo per l'eventuale rimpicciolimento dell'array
+        // Eseguo il controllo per l'eventuale rimpicciolimento dell'array
         fixedPopCapacity();
 
         return item;
@@ -100,20 +100,30 @@ public class MyStackArray<T extends Comparable> implements Iterable<T> {
 
     private class ArrayIterator implements Iterator<T> {
 
-        int i = first;
+        int i = 0;
         T[] a = array;
 
         @Override
         public boolean hasNext() {
             
-            return a[i] != null;
+            /*
+             * Il try/catch serve a gestire il caso in cui l'array è pieno, siamo nell'ultima posizione, e di conseguenza non vi è nessun next.
+             * L'indice i si trova appena dopo l'ultima posizione, di conseguenza andrà in una casella dell'array non istanziata (non ancora almeno).
+             * In questo caso, semplicemente si restituisce false.
+             */
+            try {
+                return a[i] != null;
+            }
+            catch (ArrayIndexOutOfBoundsException e) {
+                return false;
+            }
         }
 
         @Override
         public T next() {
             
             //Ritorna l'oggetto in posizione i, e sposta la variabile di conteggio i "indietro" nell'array
-            return a[i--];
+            return a[i++];
         }
 
     }

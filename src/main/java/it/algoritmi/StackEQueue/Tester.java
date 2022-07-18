@@ -17,7 +17,7 @@ public class Tester {
         System.out.println("Rimozione 1: " + stackArray.pop());
         System.out.println("Rimozione 2: " + stackArray.pop());
 
-        System.out.println("\nStampa degli elementi nello stack sfruttando l'iteratore");
+        System.out.println("\nStampa degli elementi nello stackArray sfruttando l'iteratore");
         for (Integer num: stackArray)
             System.out.println(num);
 
@@ -30,8 +30,12 @@ public class Tester {
         MyStackList<Integer> stackList = new MyStackList<Integer>();
         stackList.push(18);
         stackList.push(21);
+        stackList.push(24);
+        stackList.push(27);
+        stackList.pop();
+        stackList.pop();
 
-        System.out.println("\nStampa degli elementi nello stack sfruttando l'iteratore");
+        System.out.println("\nStampa degli elementi nello stackList sfruttando l'iteratore");
         for (Integer num: stackList)
             System.out.println(num);
         
