@@ -9,7 +9,6 @@ import java.util.Stack;
 public class DFSconStack {
     private boolean[] marked; 
 
-    // MANCA L'IMPLEMENTAZIONE DELLA CLASSE GRAPH
     public void dfsUsingStack(Graph G, int s) {
         marked = new boolean[G.V()]; 
 
@@ -37,7 +36,7 @@ public class DFSconStack {
 
             // Utilizzo un ciclo per prendere tutti quanti i vertici adiacenti 
             // al nodo restituito dall'operazione pop di prima
-            for(int w : G.adj[vertex]){
+            for(int w : G.adj(vertex)){
                 // Se i nodi adiacenti sono già marcati, non li inserisco più all'interno
                 // dello stack. Nel caso contrario faccio un'operazione di push. 
                 if(!marked[w]) 
