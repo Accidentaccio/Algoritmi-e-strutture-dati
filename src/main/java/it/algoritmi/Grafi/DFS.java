@@ -40,16 +40,13 @@ public class DFS {
 
         // Per ogni nodo adiacente al nodo v
         for(int w: g.adj(v))
-
+            
             // Se il nodo w (uno dei nodi adiacenti a v) non è marchiato
             if(!marked[w]) {
                 // Si esegue ricorsivamente la funzione di ricerca su w
                 dfs(g, w);
                 // E infine si setta che al nodo w ci si è arrivati da v
-                edgeTo[w] = v;
-
-                //Stampo il nodo per verificare che l'algoritmo segua la logica corretta.
-                //System.out.println(w);
+                edgeTo[w] = v;                
             }
 
     }
@@ -64,8 +61,8 @@ public class DFS {
     }
 
     /**
-     * Restituisce utilizzato per arrivare al nodo v
-     * @param v il nodo di cui si vuole ottenere il nodo utilizzato per arrivarci
+     * Restituisce il nodo antecedente (nel percorso di esplorazione della dfs) al nodo v
+     * @param v nodo di cui si vuole conoscere l'antecedente (nel percorso di esplorazione della dfs)
      * @return il nodo utilizzato per arrivare a v.
      */
     public int getEdge(int v) {

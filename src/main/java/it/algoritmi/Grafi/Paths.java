@@ -19,7 +19,7 @@ public class Paths {
     public Paths(Graph g, int s) {
         this.g = g;
         this.s = s;
-        this.dfs = new DFS(g, s);
+        this.dfs = new DFS(this.g, this.s);
     }
 
     /**
@@ -39,7 +39,9 @@ public class Paths {
      */
     public Iterable<Integer> pathTo(int v) {
 
-        if(!hasPathTo(v)) return null;
+        if(!hasPathTo(v)) 
+            throw new NoPathsFindException();
+            
         MyStackArray<Integer> stack = new MyStackArray<Integer> ();
 
         /* Si parte da v, l'ultimo nodo, e si va a ritroso fino alla sorgente

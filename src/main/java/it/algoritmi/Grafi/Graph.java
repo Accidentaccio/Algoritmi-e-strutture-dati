@@ -16,7 +16,7 @@ public class Graph {
     public Graph(int V) {
         this.V = V;
         adj = (Bag<Integer>[]) new Bag[V]; 
-        for (int i = 0; i < V; i++)
+        for (int i = 0; i < this.V; i++)
             adj[i] = new Bag<Integer>(); 
     }
 
