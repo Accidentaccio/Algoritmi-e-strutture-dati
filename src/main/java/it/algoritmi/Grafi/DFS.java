@@ -8,8 +8,6 @@ public class DFS {
      * una sorta di percorso.
      */ 
     private int[] edgeTo;
-    // Il nodo sorgente.
-    private int s;
 
     /**
      * Setta le variabili di istanza e chiama la funzione di ricerca sul grafo passatogli
@@ -22,9 +20,8 @@ public class DFS {
         //Istanziamo l'array edgeTo con il numero di nodi nel grafo
         edgeTo = new int[g.V()];
 
-        this.s = s;
         //Metodo privato per la ricerca
-        dfs(g, this.s);
+        dfs(g, s);
     }
 
     /**
