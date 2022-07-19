@@ -55,4 +55,8 @@ public class Graph {
     public int V() {
         return adj.length;
     }
+
+    public Bag<Integer> getAdj(int v) {
+        return adj[v]; 
+    }
 }
