@@ -100,7 +100,7 @@ public class MyStackArray<T extends Comparable> implements Iterable<T> {
 
     private class ArrayIterator implements Iterator<T> {
 
-        int i = 0;
+        int i = first;
         T[] a = array;
 
         @Override
@@ -112,7 +112,7 @@ public class MyStackArray<T extends Comparable> implements Iterable<T> {
              * In questo caso, semplicemente si restituisce false.
              */
             try {
-                return a[i] != null;
+                return a[--i] != null;
             }
             catch (ArrayIndexOutOfBoundsException e) {
                 return false;
@@ -123,7 +123,7 @@ public class MyStackArray<T extends Comparable> implements Iterable<T> {
         public T next() {
             
             //Ritorna l'oggetto in posizione i, e sposta la variabile di conteggio i "indietro" nell'array
-            return a[i++];
+            return a[i];
         }
 
     }
