@@ -1,14 +1,21 @@
 package it.algoritmi.Grafi;
 
-import com.google.common.collect.MapMaker;
-
 import it.algoritmi.StackEQueue.MyQueueArray;
 
 public class BFS {
-    private boolean[] marked; 
+
+    // L'array che mantiene se un nodo è marchiato o meno
+    private boolean[] marked;
+    // L'array che mantiene le informazioni sul percorso seguito
     private int[] edgeTo; 
+    // L'array che mantiene la distanza da ogni nodo alla sorgente
     private int[] distTo;
 
+    /**
+     * Esegue l'algoritmo di BFS sul grafo passatogli come argomento.
+     * @param g Il grafo utilizzato per l'algoritmo
+     * @param s La sorgente del grafo
+     */
     public BFS(Graph g, int s) {
         marked = new boolean[g.V()];
         edgeTo = new int[g.V()]; 
@@ -17,7 +24,13 @@ public class BFS {
         bfs(g, s); 
     }
 
+    /**
+     * 
+     * @param g Il grafo utilizzato per l'algoritmo
+     * @param s La sorgente del grafo
+     */
     private void bfs(Graph g, int s) {
+        
         MyQueueArray<Integer> q = new MyQueueArray<Integer>(); 
         q.enqueue(s);
         marked[s] = true; 

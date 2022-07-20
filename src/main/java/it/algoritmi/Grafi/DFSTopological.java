@@ -54,7 +54,7 @@ public class DFSTopological {
      * difatto un ordinamento topologico
      * @return
      */
-    public Iterable<Integer> postOrder() {
+    public Iterable<Integer> reversePostOrder() {
         return postOrder; 
     }
 }

@@ -98,7 +98,7 @@ public class TesterGrafi {
 
 
         DFSTopological dt = new DFSTopological(dg); 
-        for (Integer n : dt.reversePostorder())
+        for (Integer n : dt.reversePostOrder())
             System.out.println(n);
     }
 }
