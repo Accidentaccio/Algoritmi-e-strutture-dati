@@ -1,6 +1,5 @@
 package it.algoritmi.AlgoritmiVari;
 
-import ch.qos.logback.core.joran.conditional.ElseAction;
 
 /**
  * Conta il numero di occorrenze del numero 2 all'interno di un array di interi (che sono solo 1, 2 e 3) ordinati in maniera crescente 

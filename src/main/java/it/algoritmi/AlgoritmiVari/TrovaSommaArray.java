@@ -2,14 +2,13 @@ package it.algoritmi.AlgoritmiVari;
 
 import java.util.HashMap;
 
-import org.osgl.util.C.Traversable;
-
 /**
  * Questo algoritmo verifica se all'interno di un array esiste una combinazione di due elementi 
  * la cui somma è pari ad x, fornito come parametro. 
  * Complessità -> O(N)
  */
 public class TrovaSommaArray {
+    
     public static boolean trovaSommaArray(int[] a, int x) {
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>(); 
         

@@ -1,7 +1,5 @@
 package it.algoritmi.AlgoritmiVari;
 
-import it.algoritmi.AlgoritmiOrdinamento.MergeSort;
-
 /**
  * Questo algoritmo trova il massimo prodotto tra due elementi dell'array. 
  * Complessità -> inferiore a O(n^2)
