@@ -24,6 +24,14 @@ public class BinarySearchTree {
        this.root = root;
        count = 1;
     }
+
+    /**
+     * Get della radice dell'albero.
+     * @return la radice dell'albero.
+     */
+    public Node getRoot() {
+        return this.root;
+    }
     
 
     /**
@@ -182,6 +190,27 @@ public class BinarySearchTree {
     }
 
     /**
+     * 
+     * @param root La radice dell'albero in cui misurare l'altezza (passato come argomento perchè
+     * potrebbe non essere necessariamente la radice)
+     * @return l'altezza del BST.
+     */
+    public int height(Node root) {
+
+        if (root == null)
+            return 0;
+        
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+
+        if (leftHeight > rightHeight)
+            return (leftHeight + 1);
+        else
+            return (rightHeight + 1);
+        
+    }
+
+    /**
      * Restituisce le chiavi dell'albero come stringa.
      */
     public String toString() {
@@ -244,9 +273,8 @@ public class BinarySearchTree {
 
         System.out.println(bst.toString());
         System.out.println(bst.searchInBST(121).key);
-        System.out.println(bst.count);
+        System.out.println(bst.height(bst.root));
         bst.delete(121);
-        System.out.println(bst.count);
         System.out.println(bst.toString());
         
     }
