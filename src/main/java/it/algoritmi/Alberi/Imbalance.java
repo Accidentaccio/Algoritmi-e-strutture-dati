@@ -73,9 +73,10 @@ public class Imbalance {
         
         
     }
-}
 
-class Node{
-    Object item; 
-    Node left, right; 
+
+    private static class Node{
+        Object item; 
+        Node left, right; 
+    }
 }
