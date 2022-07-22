@@ -34,4 +34,8 @@ public class Edge implements Comparable<Edge> {
         else
             return 0;
     }
+
+    public double weight() {
+        return this.weight;
+    }
 }

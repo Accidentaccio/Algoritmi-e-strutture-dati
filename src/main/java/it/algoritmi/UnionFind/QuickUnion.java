@@ -42,5 +42,12 @@ public class QuickUnion implements UnionFind {
             System.out.print(n + " ");
     }
 
+
+    public boolean connected(int v, int w) {
+        if(find(v) == find(w))
+            return true; 
+        return false; 
+    }
+
     
 }

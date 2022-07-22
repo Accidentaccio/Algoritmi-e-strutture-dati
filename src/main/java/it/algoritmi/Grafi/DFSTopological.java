@@ -30,6 +30,7 @@ public class DFSTopological {
         }
     }
 
+    
     /**
      * 
      * @param g Grafo diretto utilizzato per l'algoritmo.
@@ -57,4 +58,5 @@ public class DFSTopological {
     public Iterable<Integer> reversePostOrder() {
         return postOrder; 
     }
+
 }
