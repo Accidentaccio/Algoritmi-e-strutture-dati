@@ -6,6 +6,7 @@ import it.algoritmi.Grafi.EdgeWeightedDigraph;
 import it.algoritmi.StackEQueue.MyStackArray;
 
 /**
+ * Algoritmo di ordinamento topologico.
  * Algoritmo per trovare il percorso minore su grafi pesati 
  * che non presentano cicli al loro interno.
  * Funziona anche con pesi negativi. 
